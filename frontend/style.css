@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.cidade {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+.temp {
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.descricao {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 18px 10px;
+    margin-top: 10px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.info-item span:first-child {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.info-item span:last-child {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.loading, .erro {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.erro {
+    color: #fecaca;
+}
+
+button {
+    margin-top: 25px;
+    background: white;
+    color: #1e3a8a;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
