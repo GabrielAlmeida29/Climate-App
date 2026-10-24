@@ -1,27 +1,15 @@
 package com.temp.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public static class Main {
+public class OpenWeatherResponseDTO {
 
-    private double temp;
-
-    @JsonProperty("feels_like")
-    private double feelsLike;
-
-    private int humidity;
-}
-
-@Data
-@NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static class Weather {
-
-    private String description;
+    private MainDTO main;
+    private WeatherDTO[] weather;
+    private String name;
 }
