@@ -2,8 +2,8 @@
 package com.temp.api.controller;
 
 import com.temp.api.domain.service.TempService;
-import com.temp.app.dto.TempResponseDTO;
-import com.temp.app.apiservice.TempService;
+import com.temp.api.dto.TempResponseDTO;
+import com.temp..api.domain.service.TempService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
