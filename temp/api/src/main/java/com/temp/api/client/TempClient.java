@@ -1,4 +1,3 @@
-
 package com.temp.api.client;
 
 import com.temp.api.dto.OpenWeatherResponseDTO;
@@ -13,21 +12,15 @@ public class TempClient {
     private final RestClient restClient;
     private final String apiKey;
 
-    public TempClient(
-            RestClient.Builder builder,
-            @Value("${openweather.api-key}") String apiKey) {
-
-        this.restClient = builder
+    public TempClient(@Value("${openweather.api-key}") String apiKey) {
+        this.apiKey = apiKey;
+        this.restClient = RestClient.builder()
                 .baseUrl("https://api.openweathermap.org/data/2.5")
                 .build();
-
-        this.apiKey = apiKey;
     }
 
-    public TempResponseDTO consultarTemperatura(
-            double lat, double lon) {
+    public TempResponseDTO consultarTemperatura(double lat, double lon) {
 
-        // 1. Consulta a OpenWeather e recebe a resposta original
         OpenWeatherResponseDTO resposta = restClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/weather")
@@ -40,7 +33,6 @@ public class TempClient {
                 .retrieve()
                 .body(OpenWeatherResponseDTO.class);
 
-        // 2. Verifica se a resposta contém os dados necessários
         if (resposta == null
                 || resposta.getMain() == null
                 || resposta.getWeather() == null
@@ -50,7 +42,6 @@ public class TempClient {
                     "A OpenWeather retornou uma resposta incompleta.");
         }
 
-        // 3. Converte os dados externos para o DTO da sua API
         return new TempResponseDTO(
                 resposta.getMain().getTemp(),
                 resposta.getMain().getFeelsLike(),
