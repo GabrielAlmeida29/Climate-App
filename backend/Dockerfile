@@ -1,25 +1,21 @@
-# --- Fase 1: Compilação (Build) ---
-FROM eclipse-temurin:21-jdk-alpine AS build
+# --- Fase 1: Compilação (Build com Maven padrão) ---
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# Copia os ficheiros do Maven e o código fonte
-mvnw mvnw.cmd pom.xml ./
-COPY .mvn .mvn
-COPY src src
+# Copia o pom.xml e descarrega as dependências
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-# Dá permissão de execução ao Maven Wrapper e compila o projeto
-RUN chmod +x mvnw
-RUN ./mvnw clean package -DskipTests
+# Copia o código fonte e faz o package
+COPY src src
+RUN mvn clean package -DskipTests
 
 # --- Fase 2: Execução ---
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
-# Copia o jar gerado na fase anterior para a imagem final
+# Copia o jar gerado na fase anterior
 COPY --from=build /app/target/*.jar app.jar
 
-# Define a porta que a aplicação vai escutar
 EXPOSE 8080
-
-# Comando para iniciar a aplicação
 ENTRYPOINT ["java", "-jar", "app.jar"]
