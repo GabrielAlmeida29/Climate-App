@@ -7,11 +7,11 @@ async function carregarClima() {
         return;
     }
 
-    navigator.geolocation.getCurrentPosition(async (position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
 
-        try {
+            try {
             const response = await fetch(`http://localhost:8080/api/temp?lat=${lat}&lon=${lon}`);
             
             if (!response.ok) {
