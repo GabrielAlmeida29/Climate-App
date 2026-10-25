@@ -12,7 +12,7 @@ async function carregarClima() {
             const lon = position.coords.longitude;
 
             try {
-            const response = await fetch(`http://localhost:8080/api/temp?lat=${lat}&lon=${lon}`);
+            const response = await fetch(`http://200.192.6.64/api/temp?lat=${lat}&lon=${lon}`);
             
             if (!response.ok) {
                 throw new Error('Erro ao buscar dados do clima');
