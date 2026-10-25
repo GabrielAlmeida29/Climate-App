@@ -41,10 +41,10 @@ async function carregarClima() {
             conteudo.innerHTML = `
                 <p class="erro">Não foi possível carregar o clima.</p>
                 <p style="margin-top:10px; font-size:0.9rem; opacity:0.8">
-                    Verifique se a API está rodando em http://localhost:8080
+                    Verifique sua conexão e tente novamente.
                 </p>
             `;
-            console.error(error);
+            console.error("Erro ao carregar o clima:", error);
         }
     }, (error) => {
         conteudo.innerHTML = `
