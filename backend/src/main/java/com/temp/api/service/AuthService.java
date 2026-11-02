@@ -4,6 +4,7 @@ import com.temp.api.dto.AuthResponseDTO;
 import com.temp.api.dto.LoginRequestDTO;
 import com.temp.api.dto.RegisterRequestDTO;
 import com.temp.api.dto.UserResponseDTO;
+import com.temp.api.exceptions.CredenciaisInvalidasException;
 import com.temp.api.exceptions.EmailJaCadastradoException;
 import com.temp.api.exceptions.UsuarioNaoEncontradoException;
 import com.temp.api.model.Role;

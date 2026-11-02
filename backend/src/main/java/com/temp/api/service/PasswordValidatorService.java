@@ -9,7 +9,7 @@ public class PasswordValidatorService {
 
     public void validar(String senha) {
         int minCaracteres = 8;
-        int maxCaracteres = 72;
+        int maxCaracteres = 20;
 
         if (senha.length() < minCaracteres) {
             throw new ResponseStatusException(

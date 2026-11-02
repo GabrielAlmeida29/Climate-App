@@ -1,4 +1,4 @@
-package com.temp.api.service;
+package com.temp.api.exceptions;
 
 public class CredenciaisInvalidasException extends RuntimeException {
 
